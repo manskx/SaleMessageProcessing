@@ -1,5 +1,7 @@
 package com.manskx.salemessageprocessing.model;
 
+import java.util.Map;
+
 import com.manskx.salemessageprocessing.IO.MessageWriter;
 
 public class IntervalReport implements Report {
@@ -9,7 +11,7 @@ public class IntervalReport implements Report {
 
 	}
 
-	public void Process(int messageCount) {
+	public void Process(Map<String, Product> listProducts, int messageCount) {
 		// TODO Auto-generated method stub
 
 	}

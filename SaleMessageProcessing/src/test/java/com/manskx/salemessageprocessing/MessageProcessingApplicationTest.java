@@ -2,6 +2,7 @@ package com.manskx.salemessageprocessing;
 
 import static org.junit.Assert.assertEquals;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -22,6 +23,8 @@ public class MessageProcessingApplicationTest {
 	private List<String> inputList;
 	private List<String> outputList;
 
+	private static final String resouceFolderPath = "src/test/resources/";
+
 	@Before
 	public void setUp() {
 		inputList = new ArrayList<String>();
@@ -33,21 +36,11 @@ public class MessageProcessingApplicationTest {
 	}
 
 	@Test
-	public void MessageProcessingApplicationTest1() {
+	public void MessageProcessingApplicationTest1() throws IOException {
 		inputList.clear();
-		inputList.add("apple at 10p");
-		inputList.add("apple at 10p");
-		inputList.add("apple at 10p");
-		inputList.add("apple at 10p");
-		inputList.add("apple at 10p");
-		inputList.add("apple at 10p");
-		inputList.add("apple at 10p");
-		inputList.add("apple at 10p");
-		inputList.add("apple at 10p");
-		inputList.add("apple at 10p");
+		FileLinesToArrayList.readFileLinesToArrayList(resouceFolderPath + "input1.txt", inputList);
 		outputList.clear();
-		outputList.add("SaleAfter: 10");
-		outputList.add("Product: apple  Value: 100 Sales:10");
+		FileLinesToArrayList.readFileLinesToArrayList(resouceFolderPath + "output1.txt", outputList);
 		messageProcessor.startProcessing();
 		assertEquals(((TestMessageWriter) testMessgeWriter).getLines(), outputList);
 	}
@@ -70,6 +63,16 @@ public class MessageProcessingApplicationTest {
 		outputList.add("Product: apple  Value: 80020 Sales:1");
 		outputList.add("Product: orange  Value: 20 Sales:41");
 		messageProcessor.startProcessing();
+	}
+
+	@Test
+	public void MessageProcessingApplicationTest3() throws IOException {
+		inputList.clear();
+		FileLinesToArrayList.readFileLinesToArrayList(resouceFolderPath + "input2.txt", inputList);
+		outputList.clear();
+		FileLinesToArrayList.readFileLinesToArrayList(resouceFolderPath + "output2.txt", outputList);
+		messageProcessor.startProcessing();
+		assertEquals(((TestMessageWriter) testMessgeWriter).getLines(), outputList);
 	}
 
 }

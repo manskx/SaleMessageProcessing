@@ -5,9 +5,16 @@ import java.util.List;
 
 public class Product {
 	private List<Sale> sales;
+	private List<String> history;
+
+	public enum UpdateType {
+		ADD, SUBTRACT, MULTIPLY
+	}
 
 	public Product() {
 		this.sales = new ArrayList<Sale>();
+		this.setHistory(new ArrayList<String>());
+
 	}
 
 	public void addSaleToProduct(Sale sale) {
@@ -26,11 +33,45 @@ public class Product {
 		return sales.size();
 	}
 
+	public void addDuplicatedSalesToProduct(Sale sale, int n) {
+		for (int i = 0; i < n; i++)
+			sales.add(new Sale(sale));
+	}
+
 	public void addMultiplesSalesToProduct(List<Sale> sales) {
 		this.sales.addAll(sales);
 	}
 
 	public List<Sale> getSales() {
 		return sales;
+	}
+
+	public void updateAllSales(UpdateType updateType, int changeValue) {
+		switch (updateType) {
+		case ADD:
+			for (int i = 0; i < sales.size(); i++)
+				sales.get(i).addValue(changeValue);
+			break;
+		case SUBTRACT:
+			for (int i = 0; i < sales.size(); i++)
+				sales.get(i).subValue(changeValue);
+			break;
+		case MULTIPLY:
+			for (int i = 0; i < sales.size(); i++)
+				sales.get(i).multValue(changeValue);
+			break;
+		}
+	}
+
+	public List<String> getHistory() {
+		return history;
+	}
+
+	public void setHistory(List<String> history) {
+		this.history = history;
+	}
+
+	public void addHistoryRecord(String historyRecord) {
+		this.history.add(historyRecord);
 	}
 }

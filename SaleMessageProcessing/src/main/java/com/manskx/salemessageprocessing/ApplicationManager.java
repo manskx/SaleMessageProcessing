@@ -5,6 +5,15 @@ import com.manskx.salemessageprocessing.IO.ConsoleMessageWriter;
 import com.manskx.salemessageprocessing.IO.MessageReader;
 import com.manskx.salemessageprocessing.IO.MessageWriter;
 
+/**
+ * 
+ * @author mansk </br>
+ *         This class is the manager of application components and it is
+ *         responsible for
+ *         <li>define input/output methods (console/ file ...)</li>
+ *         <li>define message / report processors</li> </br>
+ *         <b>Note: This class is singleton</b>
+ */
 public class ApplicationManager {
 	private MessageProcessor messageProcessor;
 	private ReportProcessor reportProcessor;
@@ -20,6 +29,7 @@ public class ApplicationManager {
 		messageProcessor = new MessageProcessor(consoleMessageReader, consoleMessgeWriter, reportProcessor);
 	}
 
+	// one instance singleton
 	public static ApplicationManager getInstance() {
 		if (instance == null) {
 			instance = new ApplicationManager();

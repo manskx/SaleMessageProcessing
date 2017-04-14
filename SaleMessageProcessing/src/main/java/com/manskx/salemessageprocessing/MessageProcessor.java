@@ -10,6 +10,8 @@ import com.manskx.salemessageprocessing.IO.MessageWriter;
 import com.manskx.salemessageprocessing.config.Configuration;
 import com.manskx.salemessageprocessing.model.Message;
 import com.manskx.salemessageprocessing.model.MessageTypeOne;
+import com.manskx.salemessageprocessing.model.MessageTypeThree;
+import com.manskx.salemessageprocessing.model.MessageTypeTwo;
 import com.manskx.salemessageprocessing.model.Product;
 
 public class MessageProcessor {
@@ -32,12 +34,20 @@ public class MessageProcessor {
 		this.reportProcessor.setListProducts(listProducts);
 	}
 
+	/**
+	 * This method initializes Messages and its type </br>
+	 * <b> NOTE: Don't forget to add new message types if you want to add new
+	 * message type. </b>
+	 */
 	private void initalizeMessages() {
 		listMessages = new ArrayList<Message>();
 		Message messageTypeOne = new MessageTypeOne();
+		Message messageTypeTwo = new MessageTypeTwo();
+		Message messageTypeThree = new MessageTypeThree();
 
 		listMessages.add(messageTypeOne);
-
+		listMessages.add(messageTypeTwo);
+		listMessages.add(messageTypeThree);
 	}
 
 	public void startProcessing() {
@@ -57,6 +67,10 @@ public class MessageProcessor {
 			if (!validMessage)
 				throw new IllegalArgumentException("Message Type not supported");
 			reportProcessor.processIntervalReports(messageCount);
+		}
+		// check if reach max number of messages
+		if ((messageCount == Configuration.Max)) {
+			reportProcessor.processFinalReport(Configuration.Max);
 		}
 
 	}

@@ -25,4 +25,12 @@ public class Product {
 	public int getNumberOfSales() {
 		return sales.size();
 	}
+
+	public void addMultiplesSalesToProduct(List<Sale> sales) {
+		this.sales.addAll(sales);
+	}
+
+	public List<Sale> getSales() {
+		return sales;
+	}
 }

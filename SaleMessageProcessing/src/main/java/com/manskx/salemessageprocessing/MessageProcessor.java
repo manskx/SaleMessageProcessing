@@ -60,4 +60,28 @@ public class MessageProcessor {
 		}
 
 	}
+
+	public ReportProcessor getReportProcessor() {
+		return reportProcessor;
+	}
+
+	public void setReportProcessor(ReportProcessor reportProcessor) {
+		this.reportProcessor = reportProcessor;
+	}
+
+	public MessageReader getMessageReader() {
+		return messageReader;
+	}
+
+	public void setMessageReader(MessageReader messageReader) {
+		this.messageReader = messageReader;
+	}
+
+	public MessageWriter getMessgeWriter() {
+		return messgeWriter;
+	}
+
+	public void setMessgeWriter(MessageWriter messgeWriter) {
+		this.messgeWriter = messgeWriter;
+	}
 }

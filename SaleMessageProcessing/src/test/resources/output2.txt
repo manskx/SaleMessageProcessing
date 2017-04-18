@@ -13,6 +13,7 @@ Product: orange  Value: 2648 Sales:164
 SaleAfter: 50
 Product: apple  Value: 481388 Sales:5
 Product: orange  Value: 3068 Sales:205
+Message limit reached.
 FinalReport: 50
 History of Product: apple
 At message#1 Adding one sale to: apple with value: 10

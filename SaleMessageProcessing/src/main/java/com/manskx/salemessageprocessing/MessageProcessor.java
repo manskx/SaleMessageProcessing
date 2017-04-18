@@ -70,6 +70,7 @@ public class MessageProcessor {
 		}
 		// check if reach max number of messages
 		if ((messageCount == Configuration.Max)) {
+			this.messgeWriter.writeMessageLine(Configuration.FINSH_MESSAGE);
 			reportProcessor.processFinalReport(Configuration.Max);
 		}
 

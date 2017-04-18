@@ -21,9 +21,12 @@ Contents
 Setup
 - import eclise project, build, run.
 - run jar file directly.
-	ex: run this command line
-	java -jar messageprocessing.jar 
-  
+- ex: run this command line
+
+
+```
+java -jar messageprocessing.jar 
+```
 
 
 Message examples

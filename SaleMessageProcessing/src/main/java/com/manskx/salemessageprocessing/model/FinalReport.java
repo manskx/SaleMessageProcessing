@@ -11,6 +11,8 @@ public class FinalReport implements Report {
 	public void Process(Map<String, Product> listProducts, int messageCount) {
 		String reportHeader = "FinalReport: " + messageCount;
 		messageWriter.writeMessageLine(reportHeader);
+		
+		// output history foreach product
 		for (Entry<String, Product> product : listProducts.entrySet()) {
 			String Line = "History of Product: " + product.getKey();
 			messageWriter.writeMessageLine(Line);

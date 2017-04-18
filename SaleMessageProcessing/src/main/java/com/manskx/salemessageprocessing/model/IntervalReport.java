@@ -16,6 +16,7 @@ public class IntervalReport implements Report {
 	public void Process(Map<String, Product> listProducts, int messageCount) {
 		String logId = "SaleAfter: " + messageCount;
 		messageWriter.writeMessageLine(logId);
+		
 		for (Entry<String, Product> product : listProducts.entrySet()) {
 			String Line = "Product: " + product.getKey() + "  Value: " + product.getValue().getTotalValue() + " Sales:"
 					+ product.getValue().getNumberOfSales();
